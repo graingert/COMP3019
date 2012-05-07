@@ -25,4 +25,10 @@ public class LetterCountingMGridApplet extends MGridApplet{
 			submitException(e);
 		}
 	}
+	
+	public static void main(String[] args){
+		LetterCountingMGridApplet lcmda = new LetterCountingMGridApplet();
+		lcmda.init();
+		lcmda.start();
+	}
 }
