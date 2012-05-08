@@ -26,6 +26,10 @@ public class LetterCountingMGridApplet extends MGridApplet{
 		}
 	}
 	
+	/**
+	 * Bodge to allow runnable jar creation.
+	 * @param args
+	 */
 	public static void main(String[] args){
 		LetterCountingMGridApplet lcmda = new LetterCountingMGridApplet();
 		lcmda.init();
