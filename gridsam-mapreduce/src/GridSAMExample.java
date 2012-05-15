@@ -1,12 +1,20 @@
+import java.io.IOException;
+import java.io.InputStream;
+
 import org.icenigrid.gridsam.client.common.ClientSideJobManager;
 import org.icenigrid.gridsam.core.*;
 import org.icenigrid.gridsam.core.jsdl.JSDLSupport;
 import org.icenigrid.schema.jsdl.y2005.m11.*; 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Text;
+import org.xml.sax.SAXException;
 
 import org.apache.xmlbeans.XmlException; 
 
-import java.io.*;
-import java.util.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 public class GridSAMExample {
 
@@ -38,6 +46,29 @@ public class GridSAMExample {
 	}
 
 	private static String createJSDLDescription(String execName, String args) {
-		return "";
+		String s_jsdl = "";
+		try {
+			InputStream in = GridSAMExample.class.getResourceAsStream("posix.jsdl");
+			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+			DocumentBuilder db;
+			db = dbf.newDocumentBuilder();
+			Document jsdl = db.parse(in);
+			
+			Element executable = jsdl.getElementById("execName");
+			Element argument = jsdl.getElementById("execName");
+			Element ftp_out = jsdl.getElementById("ftp-out");
+			Element ftp_err =  jsdl.getElementById("ftp-err");
+			
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return s_jsdl;
 	}
 }
