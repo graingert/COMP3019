@@ -15,20 +15,20 @@
                 <Error>stderr.txt</Error>
             </POSIXApplication>
         </Application>
-        <DataStaging id="stdout">
+        <DataStaging>
             <FileName>stdout.txt</FileName>
             <CreationFlag>overwrite</CreationFlag>
             <DeleteOnTermination>true</DeleteOnTermination>
             <Target>
-                <URI>ftp://anonymous:anonymous@gridsam.lesc.doc.ic.ac.uk:45521/public/output/file.txt</URI>
+                <URI id="ftp-out">ftp://anonymous:anonymous@gridsam.lesc.doc.ic.ac.uk:45521/public/output/file.txt</URI>
             </Target>
         </DataStaging>
-        <DataStaging id="stderr">
+        <DataStaging>
             <FileName>stderr.txt</FileName>
             <CreationFlag>overwrite</CreationFlag>
             <DeleteOnTermination>true</DeleteOnTermination>
             <Target>
-                <URI>ftp://anonymous:anonymous@gridsam.lesc.doc.ic.ac.uk:45521/public/output/file.txt</URI>
+                <URI id="ftp-in">ftp://anonymous:anonymous@gridsam.lesc.doc.ic.ac.uk:45521/public/output/file.txt</URI>
             </Target>
         </DataStaging>
     </JobDescription>
