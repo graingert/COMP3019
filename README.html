@@ -1,0 +1,78 @@
+<h1>COMP3019</h1>
+
+<h2>Part 1</h2>
+
+<ol>
+<li>The program available
+<a href="https://github.com/graingert/COMP3019/blob/master/mgrid-wordcount/src/uk/co/graingert/mgrid/lettercount/LetterCountingMGridApplet.java">here</a>
+should analyse the textfile and output how many times the character
+appears in the textfile.</li>
+<li>The applet launched a "Job Results" window with a JTextArea set to
+the value of 31</li>
+<li>Single Letter MGrid
+<ol><li>A parameters file is written containing only the letter 'a'</li>
+<li><a href="https://github.com/downloads/graingert/COMP3019/lettercount.jar">lettercount.jar</a> and the parameters file is uploaded to the M-Grid system</li>
+<li>The LetterCountingMGridApplet.class is then selected</li>
+<li>This applet is then downloaded and executed by any
+"processing nodes" volunteering their CPU time using a browser at http://example.com/mgrid/JobRequest</li>
+<li>The job can be monitored by viewing
+http://example.com/mgrid/ViewJobs</li></ol></li>
+<li>Multiple Letter M-Grid
+<ol><li>A <a href="https://github.com/graingert/COMP3019/blob/master/mgrid-wordcount/parameters.txt">parameters.txt</a>
+file is written containing a list of new line delimeted parameters:
+The letters a-z "." and " ".</li>
+<li><a href="https://github.com/downloads/graingert/COMP3019/lettercount.jar">lettercount.jar</a>
+and the parameters file is uploaded to the M-Grid system</li>
+<li>The LetterCountingMGridApplet.class is then selected</li>
+<li>This applet is then downloaded and executed by any
+"processing nodes" volunteering their CPU time using a browser at
+http://example.com/mgrid/JobRequest Each (job,parameter) is
+distributed among the "processing nodes"</li>
+<li>The job can be monitored by viewing
+http://example.com/mgrid/ViewJobs</li>
+<li>This page will show which paramaters have been "UPLOADED",
+"ALLOCATED" and "COMPLETED"</li>
+<li>Once the (job,parameter) is in the "COMPLETED" state the results
+can be obtained through
+http://example.com/mgrid/ViewJobs?results=true with the jobNum
+and paramNum GET parameters filled in as appropriate</li></ol></li>
+<li>Errors
+<ol><li>Require submit jobs individually, manually compare for
+differences.</li>
+<li>Allocate each (job,parameter) pair to multiple "processing nodes"
+and compare the differences in ouput</li></ol></li>
+</ol>
+
+<h2>Part 2</h2>
+
+<ol>
+<li>The code for this implimentation is available at
+<a href="https://github.com/graingert/gridsam/blob/b6ac5fac7c3ab8bb8df42837172cd775b019b435/GridSAMExample.java">GridSAMExample.java</a>
+<ol><li>A JSDL file is created that describes the job to be submitted.
+This file is dispatched to the GridSAM server.</li>
+<li>Once this JSDL file has been dispatched the JobID can be
+obtained. Using this JobID the job can be monitored.</li>
+<li>To monitor the job my code prints out any new stages that the job
+has been through while waiting for the job to be in a terminal
+state.</li></ol></li>
+<li><p>Map reduce</p>
+
+<ol><li>The psuedo-code is available at 
+<a href="https://github.com/graingert/gridsam/blob/master/mapreduce.pc">mapreduce.pc</a></li>
+<li>The implimented code is available at
+<a href="https://github.com/graingert/gridsam/blob/master/GridSAMExample.java">GridSAMExample.java</a></li>
+<li><p>The output of the code:</p>
+
+<pre><code>$ ./GridSAMExampleRun
+Run the GridSAM client example...
+Creating a new client Job Manager...
+urn:gridsam:18cec70a375a316601375bc968340188
+urn:gridsam:18cec70a375a316601375bc96d31018f
+urn:gridsam:18cec70a375a316601375bc9720b0196
+urn:gridsam:18cec70a375a316601375bc97663019d
+{/home/tag1g09/projects/lsds/gridsam-2.3.0-client/cw-file1.txt=4, /home/tag1g09/projects/lsds/gridsam-2.3.0-client/cw-file3.txt=4, /home/tag1g09/projects/lsds/gridsam-2.3.0-client/cw-file2.txt=1}
+</code></pre>
+
+<p>This code shows the JobIDs created, and once finished a mapping of
+filename to wordcount.</p></li></ol></li>
+</ol>
